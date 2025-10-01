@@ -40,7 +40,7 @@ export default function BandIdentity() {
 						alt="Your Band Logo"
 					/>
 				</div>
-				<NewAlbum />
+				{/* <NewAlbum /> */}
 			</div>
 		</>
 	);

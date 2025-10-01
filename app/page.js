@@ -12,12 +12,12 @@ export default function Home() {
 			<main className="min-h-screen bg-white">
 				<Intro />
 				<About />
-				<Listen />
+				{/* <Listen />
 				<Shows />
 				<Video />
 				<ContactUs />
 				<TextParallax />
-				<PhotoGallery />
+				<PhotoGallery /> */}
 			</main>
 		</>
 	);
