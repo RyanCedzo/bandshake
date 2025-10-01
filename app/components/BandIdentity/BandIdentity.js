@@ -18,9 +18,9 @@ export default function BandIdentity() {
 						height={236}
 						alt="Panic Panini logo"
 					/>
-					<ScrollTo toId="shows" duration={1500}>
+					<a href="https://tr.ee/ecVmLU6Eqp" target="_blank" rel="noreferrer">
 						<ButtonPrimary customClasses="text-sm">Find Out More</ButtonPrimary>
-					</ScrollTo>
+					</a>
 				</Container>
 			</div>
 			<div className="hidden h-full flex-col justify-between grow-0 shrink-0 bg-black z-10 bg-opacity-30 lg:flex">
