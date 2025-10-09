@@ -7,7 +7,7 @@ export default function Footer() {
 	return (
 		<section id="footer" className="bg-black w-full lg:fixed lg:bottom-0 lg:z-[-1] lg:h-92">
 			<footer className="w-full">
-				<div className=" py-16">
+				{/* <div className=" py-16">
 					<Container customClasses="flex flex-col lg:items-center lg:flex-row">
 						<div className="basis-2/3 text-white">
 							<h3 className="text-5xl font-bold">Subscribe</h3>
@@ -17,7 +17,7 @@ export default function Footer() {
 							<SubscribeForm />
 						</div>
 					</Container>
-				</div>
+				</div> */}
 				<div className="bg-fluo-green pt-1 pb-1 relative z-100">
 					<Container customClasses="flex justify-between items-center">
 						{/* Footer logo */}

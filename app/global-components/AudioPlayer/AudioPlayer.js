@@ -26,8 +26,33 @@ export default function AudioPlayer() {
 	};
 
 	return (
-		<div className="relative w-full max-w-140 my-auto bg-fluo-green rounded-xl border-solid border-4 border-white shadow-centered-shadow p-5 pt-28 before:content-[''] before:bg-album-cover before:absolute before:-top-4 before:left-1/2 before:-translate-x-1/2 before:w-[29.6rem] before:h-34 before:max-w-60 before:bg-cover before:blur-md before:opacity-90 lg:w-3/4 lg:before:max-w-75 lg:before:h-45 lg:pt-40 lg:p-11">
-			<Image className="absolute -top-16 left-1/2 -translate-x-1/2 rounded-xl max-w-[16rem] lg:max-w-xs" src="/panic-panini-album.jpg" width={475} height={318} alt="Album cover" />
+		<div className="relative w-full max-w-140 my-auto bg-[#001462] rounded-xl border-solid border-4 border-white shadow-centered-shadow p-5 pt-28
+			before:content-['']
+			before:absolute
+			before:-top-18
+			before:left-1/2
+			before:-translate-x-1/2
+			before:w-[12rem]
+			before:h-[12rem]
+			before:rounded-xl
+			before:bg-gradient-to-tr
+			before:from-[#001462]   /* gold/yellow now starts the gradient */
+			before:to-[#760000]     /* dark red ends the gradient */
+			before:blur-lg
+			before:opacity-90
+			lg:w-3/4
+			lg:before:w-[18rem]
+			lg:before:h-[18rem]
+			lg:pt-40
+			lg:p-11"
+		>
+			<Image
+				className="absolute -top-16 left-1/2 -translate-x-1/2 rounded-xl w-48 h-48 object-cover lg:w-64 lg:h-64 shadow-lg"
+				src={currentTrack.imgSrc}
+				width={256} // optional, helps with optimization
+				height={256}
+				alt={`${currentTrack.title} cover`}
+			/>
 			<Controls audioRef={audioRef} progressBarRef={progressBarRef} setTimeProgress={setTimeProgress} duration={duration} tracks={tracks} trackIndex={trackIndex} setTrackIndex={setTrackIndex} setCurrentTrack={setCurrentTrack} handleNext={handleNext} />
 			<DisplayTrack currentTrack={currentTrack} audioRef={audioRef} progressBarRef={progressBarRef} setDuration={setDuration} handleNext={handleNext} trackIndex={trackIndex} />
 			<ProgressBar progressBarRef={progressBarRef} audioRef={audioRef} timeProgress={timeProgress} duration={duration} />

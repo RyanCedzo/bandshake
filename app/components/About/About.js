@@ -13,83 +13,61 @@ export default function About() {
 	return (
 		<section
 			id="about"
-			className={`relative flex flex-col items-center justify-end w-full mt-16 mx-auto max-w-600 lg:flex-row lg:mt-56`}>
-			<Container customClasses="lg:absolute lg:left-1/2 lg:-translate-x-1/2">
+			className="relative flex flex-col lg:flex-row items-center w-full py-16"
+		>
+			<Container customClasses="flex flex-col lg:flex-row items-center">
 				<div
-					className="relative flex flex-col lg:max-w-md xl:max-w-2xl 2xl:max-w-4xl"
+					className="flex flex-col lg:max-w-md xl:max-w-2xl 2xl:max-w-4xl"
 					ref={textRef}
 					style={{
 						transform: isInView ? "none" : "translateX(-100px)",
 						opacity: isInView ? 1 : 0,
 						transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-					}}>
-					<div className="overflow-hidden">
-						<h2
-							className={`font-bold text-6xl pb-6 opacity-0 ${isInView ? "animate-slide-up" : ""}`}>
-							About
-						</h2>
-					</div>
+					}}
+				>
+					<h2
+						className={`font-bold text-6xl pb-6 text-center lg:text-left opacity-0 ${isInView ? "animate-slide-up" : ""}`}
+					>
+						About
+					</h2>
 
-					<p>
-						Add some info about bandshake. All that kinda shit here, man. &#8217;
-						{/* <a
-							className="text-yellow-btn-primary underline underline-offset-4 hover:text-yellow-600"
-							href="https://www.paninopanini.co.uk/"
-							target="_blank"
-							rel="noreferrer">
-							Ut labore et
-						</a> */}
-						 Imma just add some random characters and shit to fill in the blank space. dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+					<p className="pt-2">
+						We are <strong>BANDSHAKE</strong>.
 					</p>
-					<p className="pt-8">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						<a
-							className="text-yellow-btn-primary underline underline-offset-4 hover:text-yellow-600"
-							href="https://www.paninopanini.co.uk/"
-							target="_blank"
-							rel="noreferrer">
-							eiusmod tempor
-						</a>
-						. Chiudi un po&#8217; la finestra, mezzogiorno in penombra, sfondo bianco e pulito,
-						sfondo bianco e pulito.
+					<p className="pt-4">
+						<strong>BANDSHAKE</strong> creates community-based live concert experiences made to be shared.
 					</p>
-					<div className="flex pt-8 gap-4">
-						{/* Instagram */}
-						<a
-							href="https://www.instagram.com/band.shake"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
+					<p className="pt-4">
+						Music is a highly contagious ball of energy that has the power to move us and unite us. <strong>BANDSHAKE</strong> is the satellite that harnesses that energy and beams it out across the world.
+					</p>
+					<p className="pt-4">
+						We aspire to capture and preserve these ephemeral moments at the highest audio-visual quality. Our concert films share this fantastic power live music has on us all.
+					</p>
+					<p className="pt-4">
+						We want to thank you for being here to support our vision and aid in our quest to make the whole world dance.
+					</p>
+
+					<div className="flex pt-6 gap-4">
+						<a href="https://www.instagram.com/band.shake" target="_blank" rel="noopener noreferrer">
 							<FaInstagram size={45} />
 						</a>
-
-						{/* YouTube */}
-						<a
-							href="https://www.youtube.com/@BANDSHAKE"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
+						<a href="https://www.youtube.com/@BANDSHAKE" target="_blank" rel="noopener noreferrer">
 							<FaYoutube size={45} />
 						</a>
-
-						{/* TikTok */}
-						<a
-							href="https://www.tiktok.com/@band.shake"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
+						<a href="https://www.tiktok.com/@band.shake" target="_blank" rel="noopener noreferrer">
 							<FaTiktok size={45} />
 						</a>
 					</div>
 				</div>
+
+				<Image
+					className="w-full mt-8 lg:mt-0 lg:max-w-lg xl:max-w-xl object-cover"
+					src="/bandshake-headshot.jpg"
+					width={750}
+					height={533}
+					alt="Holding guitar"
+				/>
 			</Container>
-			<Image
-				className="w-full mt-5 max-h-96 object-cover lg:mt-0 lg:max-h-none lg:max-w-lg lg:block xl:max-w-xl"
-				src="/bandshake-headshot.jpg"
-				width={750}
-				height={533}
-				alt="Holding guitar"
-			/>
 		</section>
 	);
 }

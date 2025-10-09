@@ -12,7 +12,7 @@ export default function DisplayTrack({ currentTrack, audioRef, setDuration, prog
 	}, []);
 
 	return (
-		<div className="text-[#6f705f]">
+		<div className="text-[#f3a712]">
 			<audio src={currentTrack.src} preload="metadata" ref={audioRef} onEnded={handleNext} onLoadedMetadata={trackDuration} />
 			<div className="text-base">
 				<p className="font-bold">

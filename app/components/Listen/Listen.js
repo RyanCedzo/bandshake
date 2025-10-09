@@ -11,8 +11,9 @@ export default function Listen() {
 	const isInView = useInView(textRef, { once: true });
 
 	return (
-		<section id="listen" className={`w-full mt-16 lg:mt-56`}>
+		<section id="listen" className="w-full py-16">
 			<Container customClasses="flex flex-col lg:flex-row">
+				{/* Text Section */}
 				<div
 					className="flex flex-col justify-center basis-2/4 lg:max-w-lg xl:max-w-2xl 2xl:max-w-4xl"
 					ref={textRef}
@@ -20,17 +21,13 @@ export default function Listen() {
 						transform: isInView ? "none" : "translateX(-100px)",
 						opacity: isInView ? 1 : 0,
 						transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-					}}>
-					<p>Listen to the new album:</p>
-					<div className="overflow-hidden">
-						<h2
-							className={`font-bold text-6xl pb-6 opacity-0 ${isInView ? "animate-slide-up" : ""}`}>
-							Panic in the room
-						</h2>
-					</div>
+					}}
+				>
+					<h2 className={`font-bold text-5xl pb-6 opacity-0 ${isInView ? "animate-slide-up" : ""}`}>
+						Listen to some of our singles:
+					</h2>
 					<p>
-						Dovrebbero seguire le mie voglie, la sera appena alzato, o tardi la mattina dopo la
-						colazione, prima d&#8217;addormentarmi.
+						Put some more text around here talking about the live recording abilities at the bandshake and other stuff related to that and how we got the dopest sound around
 					</p>
 					<div className="flex items-center pt-4 gap-4">
 						<Spotify />
@@ -39,7 +36,9 @@ export default function Listen() {
 						<AppleMusic />
 					</div>
 				</div>
-				<div className="flex items-center justify-center pt-5 basis-2/4 mt-20 lg:mt-0 lg:justify-end lg:pt-[60px]">
+
+				{/* Audio Player Section */}
+				<div className="flex items-center justify-center pt-20 lg:pt-[60px] basis-2/4">
 					<AudioPlayer />
 				</div>
 			</Container>
