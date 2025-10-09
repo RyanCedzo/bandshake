@@ -4,15 +4,9 @@ import { useRef, useState, useEffect } from "react";
 import BandIdentity from "../BandIdentity/BandIdentity";
 import Container from "@/app/global-components/Container/Container";
 import IntroTourDates from "../IntroTourDates/IntroTourDates";
-import NewAlbum from "../NewAlbum/NewAlbum";
 import BackToTop from "../BackToTop/BackToTop";
 import { useInView } from "framer-motion";
 import CookieConsent from "react-cookie-consent";
-
-const observerOptions = {
-  rootMargin: "0px",
-  threshold: 0,
-};
 
 export default function Intro() {
   const [isScrollTopVisible, setIsScrollTopVisible] = useState(false);
@@ -20,40 +14,46 @@ export default function Intro() {
   const isInView = useInView(sectionRef);
 
   useEffect(() => {
-    const { scrollY } = window;
-    if (scrollY > 50 && !isInView) {
-      setIsScrollTopVisible(true);
-    } else {
-      setIsScrollTopVisible(false);
-    }
+    const onScroll = () => {
+      setIsScrollTopVisible(window.scrollY > 50 && !isInView);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, [isInView]);
 
-  // ✅ Try to programmatically play the video (needed for iOS sometimes)
   useEffect(() => {
     const video = document.querySelector("#intro-video");
-    if (video) {
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Some browsers block autoplay — try again silently
-          setTimeout(() => video.play().catch(() => {}), 1000);
-        });
-      }
+    if (!video) return;
+
+    // Try autoplay initially
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Ignore errors initially
+      });
     }
+
+    // iOS workaround: play on first touch
+    const playOnTouch = () => {
+      video.play().catch(() => {});
+      window.removeEventListener("touchstart", playOnTouch);
+    };
+    window.addEventListener("touchstart", playOnTouch);
   }, []);
 
   return (
     <section
       id="intro"
-      className={`relative flex flex-col items-center h-svh w-full overflow-hidden max-h-372 min-h-172 lg:h-screen lg:flex-row lg:justify-start`}
+      className="relative flex flex-col items-center h-svh w-full overflow-hidden max-h-372 min-h-172 lg:h-screen lg:flex-row lg:justify-start"
       ref={sectionRef}
     >
       <BandIdentity />
 
-      {/* 🔥 Background video wrapper */}
-      <div className="absolute w-full h-full top-0 left-0">
-        <div className="absolute w-full h-full top-0 left-0 bg-linear-to-b from-purple-500 to-pink-500 opacity-10"></div>
-        <div className="absolute w-full h-full top-0 left-0 bg-hero-pattern bg-repeat"></div>
+      {/* Background video */}
+      <div className="absolute inset-0 lg:left-[25%] lg:w-[75%] transition-all duration-300">
+        <div className="absolute inset-0 bg-linear-to-b from-purple-500 to-pink-500 opacity-10"></div>
+        <div className="absolute inset-0 bg-hero-pattern bg-repeat"></div>
 
         <video
           id="intro-video"
@@ -75,12 +75,34 @@ export default function Intro() {
         </video>
       </div>
 
-      {/* Tour Dates over video */}
-      <Container customClasses="flex flex-col justify-center items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:justify-end lg:items-end">
+      {/* BANDSHAKE title */}
+      <h1
+        className="
+          absolute z-30 text-center
+          left-1/2 -translate-x-1/2
+          text-5xl sm:text-6xl md:text-7xl lg:text-8xl
+          font-bold tracking-widest uppercase drop-shadow-[0_0_15px_rgba(0,0,0,0.75)]
+          pointer-events-none
+          top-[18%] lg:top-[6%]
+          lg:left-[62.5%] lg:-translate-x-[50%]
+        "
+        aria-hidden="true"
+      >
+        <span className="text-[#f3a712]">BAND</span>
+        <span className="text-[#001462]">SHAKE</span>
+      </h1>
+
+      {/* IntroTourDates with extra mobile spacing */}
+      <Container
+        customClasses="
+          absolute left-1/2 top-[50%] -translate-x-1/2 -translate-y-1/2
+          flex flex-col justify-center items-center
+          mt-8 lg:mt-0
+          lg:justify-end lg:items-end lg:top-[50%] lg:-translate-y-1/2
+        "
+      >
         <IntroTourDates />
       </Container>
-
-      {/* <NewAlbum customClasses="mt-auto z-50 lg:hidden" /> */}
 
       <BackToTop customClasses={`reveal${isScrollTopVisible ? " visible" : ""}`} />
 

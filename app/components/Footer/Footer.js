@@ -18,12 +18,12 @@ export default function Footer() {
 						</div>
 					</Container>
 				</div> */}
-				<div className="bg-fluo-green pt-1 pb-1 relative z-100">
+				<div className="bg-[#ffd08f] pt-1 pb-1 relative z-100">
 					<Container customClasses="flex justify-between items-center">
 						{/* Footer logo */}
 						<Image
 						className="max-w-32 lg:max-w-48 h-auto"
-						src="/bandshake-testlogo.jpg"
+						src="/bslogo.png"
 						width={815}
 						height={144}
 						alt="Footer logo"

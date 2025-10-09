@@ -15,7 +15,7 @@ const tourDates = [
   {
     id: 1,
     date: "15 Nov",
-    dayTime: "Saturday 5:30PM - 10:00PM",
+    dayTime: "Saturday 5:30PM-10:00PM",
     venue: "1730 Hauser Blvd",
     city: "Los Angeles",
   },
@@ -45,8 +45,8 @@ export default function IntroTourDates() {
             key={gig.id}
             className="flex items-center my-10 justify-between text-xl md:justify-end md:text-2xl lg:text-2xl xl:text-3xl"
           >
-            <div className="flex flex-col justify-center items-center date w-[4.7rem] h-[4.7rem] p-2 bg-fluo-green mr-4 text-2xl rounded-md border-8 border-white md:mr-12 lg:w-22 lg:h-22">
-              <p className="font-bold text-xl text-[#6f705f] leading-none text-center uppercase lg:text-3xl">
+            <div className="flex flex-col justify-center items-center date w-[4.7rem] h-[4.7rem] p-2 bg-[#f3a712] mr-4 text-2xl rounded-md border-8 border-[#001462] md:mr-12 lg:w-22 lg:h-22">
+              <p className="font-bold text-xl text-white leading-none text-center uppercase lg:text-3xl">
                 {gig.date}
               </p>
             </div>
