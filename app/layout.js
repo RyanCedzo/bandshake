@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
       <body className={`${poppins.className} font-rendering text-2xl xl:text-3xl`}>
         {children}
         <Footer />
-        <Analytics /> {/* ✅ Add this here */}
+        <Analytics />
       </body>
     </html>
   );

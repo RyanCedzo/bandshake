@@ -85,7 +85,7 @@ export default function IntroTourDates() {
           rel="noreferrer"
         >
           <ButtonPrimary className="bg-[#f3a712] text-[#001462] flex items-center justify-center gap-x-1 text-sm my-3 lg:text-base lg:mb-0 hover:bg-yellow-600">
-            Submit Band
+            Band Inquiry
           </ButtonPrimary>
         </a>
 

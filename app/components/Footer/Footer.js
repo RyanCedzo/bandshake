@@ -51,9 +51,9 @@ export default function Footer() {
 							href="https://tr.ee/ecVmLU6Eqp"
 							target="_blank"
 							rel="noreferrer">
-							Bandshake
+							Rye Bread
 						</a>{" "}
-						😎
+						🍞
 						</p>
 					</div>
 				</div>

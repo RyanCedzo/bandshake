@@ -11,7 +11,7 @@ export default function Listen() {
 	const isInView = useInView(textRef, { once: true });
 
 	return (
-		<section id="listen" className="w-full py-16">
+		<section id="listen" className="w-full py-8"> {/* reduced spacing from py-16 to py-8 */}
 			<Container customClasses="flex flex-col lg:flex-row">
 				{/* Text Section */}
 				<div
@@ -26,15 +26,15 @@ export default function Listen() {
 					<h2 className={`font-bold text-5xl pb-6 opacity-0 ${isInView ? "animate-slide-up" : ""}`}>
 						Listen to some of our singles:
 					</h2>
-					<p>
+					{/* <p>
 						Put some more text around here talking about the live recording abilities at the bandshake and other stuff related to that and how we got the dopest sound around
-					</p>
-					<div className="flex items-center pt-4 gap-4">
+					</p> */}
+					{/* <div className="flex items-center pt-4 gap-4">
 						<Spotify />
 						<SoundCloud />
 						<Youtube />
 						<AppleMusic />
-					</div>
+					</div> */}
 				</div>
 
 				{/* Audio Player Section */}

@@ -107,14 +107,14 @@ export default function Intro() {
       <BackToTop customClasses={`reveal${isScrollTopVisible ? " visible" : ""}`} />
 
       <CookieConsent
-        disableStyles={true}
-        buttonText="Consent"
-        cookieName="cookie_consent"
-        buttonClasses="bg-yellow-btn-primary rounded-full p-1 px-3 text-sm text-xs text-white"
-        containerClasses="w-full fixed bottom-0! bg-fluo-green p-3 z-50 lg:bg-stone-300/70 lg:backdrop-blur-lg lg:left-8 lg:bottom-2! lg:rounded-md lg:max-w-md"
-        contentClasses="text-sm leading-none mb-1 lg:text-white"
-        expires={20}
-      >
+		disableStyles={true}
+		buttonText="Consent"
+		cookieName="cookie_consent"
+		buttonClasses="bg-[#f3a712] rounded-full py-1 px-3 text-sm text-white hover:opacity-90 transition-opacity"
+		containerClasses="w-full fixed bottom-0 bg-[#001462] p-3 z-50 lg:bg-stone-300/70 lg:backdrop-blur-lg lg:left-8 lg:bottom-2 lg:rounded-md lg:max-w-md"
+		contentClasses="text-sm leading-none mb-1 text-white"
+		expires={20}
+>
         This website uses cookies to enhance the user experience.
       </CookieConsent>
     </section>

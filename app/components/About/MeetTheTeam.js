@@ -9,11 +9,11 @@ const teamMembers = [
   { name: "Nate Comay", title: "CEO", image: "/team/nateheadshot.jpg" },
   { name: "Simon Yahn", title: "CTO", image: "/team/simonheadshot.jpg" },
   { name: "Danny Pakulski", title: "Creative Director", image: "/team/dannyheadshot.png" },
-  { name: "Carter Nowak", title: "CFO", image: "/team/headshot5.jpg" },
-  { name: "Holden Glazer", title: "A&R Manager", image: "/team/headshot1.webp" },
-  { name: "Zela Al-Asadi", title: "Social Media Manager", image: "/team/headshot4.jpg" },
-  { name: "Nasha ", title: "Comms/PR", image: "/team/headshot6.jpg" },
-  { name: "Patrick Gardner", title: "Chief Sound Technician", image: "/team/headshot7.jpg" },
+  { name: "Carter Nowak", title: "CFO", image: "/team/headshotplaceholder.jpg" },
+  { name: "Holden Glazer", title: "A&R Manager", image: "/team/holdenheadshot.png" },
+  { name: "Zela Al-Asadi", title: "Social Media Manager", image: "/team/headshotplaceholder.jpg" },
+  { name: "Nasha ", title: "Comms/PR", image: "/team/headshotplaceholder.jpg" },
+  { name: "Patrick Gardner", title: "Chief Sound Technician", image: "/team/patrickheadshot.jpg" },
 ];
 
 export default function MeetTheTeam() {
