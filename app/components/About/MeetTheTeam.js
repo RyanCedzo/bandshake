@@ -13,7 +13,7 @@ const teamMembers = [
   { name: "Holden Glazer", title: "A&R Manager", image: "/team/holdenheadshot.png" },
   { name: "Zela Al-Asadi", title: "Social Media Manager", image: "/team/headshotplaceholder.jpg" },
   { name: "Nasha ", title: "Comms/PR", image: "/team/headshotplaceholder.jpg" },
-  { name: "Patrick Gardner", title: "Chief Sound Technician", image: "/team/patrickheadshot.jpg" },
+  { name: "Patrick Gardner", title: "Chief Sound Technician", image: "/team/patrickheadshotcase.jpg" },
 ];
 
 export default function MeetTheTeam() {
