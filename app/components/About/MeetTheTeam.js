@@ -9,7 +9,7 @@ const teamMembers = [
   { name: "Nate Comay", title: "CEO", image: "/team/nateheadshot.jpg" },
   { name: "Simon Yahn", title: "CTO", image: "/team/simonheadshot.jpg" },
   { name: "Danny Pakulski", title: "Creative Director", image: "/team/dannyheadshot.png" },
-  { name: "Carter Nowak", title: "CFO", image: "/team/headshotplaceholder.jpg" },
+  { name: "Carter Nowak", title: "CFO", image: "/team/jeans.jpg" },
   { name: "Holden Glazer", title: "A&R Manager", image: "/team/holdenheadshot.png" },
   { name: "Zela Al-Asadi", title: "Social Media Manager", image: "/team/headshotplaceholder.jpg" },
   { name: "Nasha ", title: "Comms/PR", image: "/team/headshotplaceholder.jpg" },
