@@ -22,24 +22,32 @@ export default function Intro() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [isInView]);
 
+  // ✅ Improved autoplay logic (works across iOS, Android, Desktop)
   useEffect(() => {
-    const video = document.querySelector("#intro-video");
+    const video = document.getElementById("intro-video");
     if (!video) return;
 
-    // Try autoplay initially
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        // Ignore errors initially
-      });
-    }
+    const tryPlay = () => video.play().catch(() => {});
+    tryPlay(); // first attempt
 
-    // iOS workaround: play on first touch
-    const playOnTouch = () => {
+    // Retry once after a short delay (helps Safari)
+    const retry = setTimeout(tryPlay, 1000);
+
+    // Fallback: play on first user interaction
+    const enablePlay = () => {
       video.play().catch(() => {});
-      window.removeEventListener("touchstart", playOnTouch);
+      window.removeEventListener("touchstart", enablePlay);
+      window.removeEventListener("click", enablePlay);
     };
-    window.addEventListener("touchstart", playOnTouch);
+
+    window.addEventListener("touchstart", enablePlay, { once: true });
+    window.addEventListener("click", enablePlay, { once: true });
+
+    return () => {
+      clearTimeout(retry);
+      window.removeEventListener("touchstart", enablePlay);
+      window.removeEventListener("click", enablePlay);
+    };
   }, []);
 
   return (
@@ -61,7 +69,6 @@ export default function Intro() {
           muted
           loop
           playsInline
-          webkit-playsinline="true"
           preload="auto"
           poster="/frame-band.jpg"
           className="object-cover w-full h-full z-10"
@@ -75,46 +82,50 @@ export default function Intro() {
         </video>
       </div>
 
-      {/* BANDSHAKE title */}
-      <h1
-        className="
-          absolute z-30 text-center
-          left-1/2 -translate-x-1/2
-          text-5xl sm:text-6xl md:text-7xl lg:text-8xl
-          font-bold tracking-widest uppercase drop-shadow-[0_0_15px_rgba(0,0,0,0.75)]
-          pointer-events-none
-          top-[18%] lg:top-[6%]
-          lg:left-[62.5%] lg:-translate-x-[50%]
-        "
-        aria-hidden="true"
-      >
-        <span className="text-[#f3a712]">BAND</span>
-        <span className="text-[#001462]">SHAKE</span>
-      </h1>
+      {/* BANDSHAKE title as image */}
+<div
+  className="
+    absolute z-30
+    left-1/2
+    top-[25%]              /* pulled up slightly from 35% */
+    -translate-x-1/2
+    -translate-y-[130px]   /* raised a bit (less downward offset) */
+    w-[90%] sm:w-[70%] md:w-[50%] lg:w-[60%] xl:w-[55%]
+    lg:top-[5%]
+    lg:-translate-y-[180px]
+    lg:left-[62.5%]
+  "
+>
+  <img
+    src="/bandshake-banner.png"
+    alt="BANDSHAKE"
+    className="w-full h-auto object-contain drop-shadow-[0_0_15px_rgba(0,0,0,0.75)]"
+  />
+</div>
 
-      {/* IntroTourDates with extra mobile spacing */}
-      <Container
-        customClasses="
-          absolute left-1/2 top-[50%] -translate-x-1/2 -translate-y-1/2
-          flex flex-col justify-center items-center
-          mt-8 lg:mt-0
-          lg:justify-end lg:items-end lg:top-[50%] lg:-translate-y-1/2
-        "
-      >
-        <IntroTourDates />
-      </Container>
+{/* IntroTourDates */}
+<Container
+  customClasses="
+    absolute left-1/2 top-[50%] -translate-x-1/2 -translate-y-1/2
+    flex flex-col justify-center items-center
+    mt-8 lg:mt-0
+    lg:justify-end lg:items-end
+  "
+>
+  <IntroTourDates />
+</Container>
 
       <BackToTop customClasses={`reveal${isScrollTopVisible ? " visible" : ""}`} />
 
       <CookieConsent
-		disableStyles={true}
-		buttonText="Consent"
-		cookieName="cookie_consent"
-		buttonClasses="bg-[#f3a712] rounded-full py-1 px-3 text-sm text-white hover:opacity-90 transition-opacity"
-		containerClasses="w-full fixed bottom-0 bg-[#001462] p-3 z-50 lg:bg-stone-300/70 lg:backdrop-blur-lg lg:left-8 lg:bottom-2 lg:rounded-md lg:max-w-md"
-		contentClasses="text-sm leading-none mb-1 text-white"
-		expires={20}
->
+        disableStyles={true}
+        buttonText="Consent"
+        cookieName="cookie_consent"
+        buttonClasses="bg-[#ffd08f] rounded-full py-1 px-3 text-sm text-white hover:opacity-90 transition-opacity"
+        containerClasses="w-full fixed bottom-0 bg-[#001462] p-3 z-50 lg:bg-stone-300/70 lg:backdrop-blur-lg lg:left-8 lg:bottom-2 lg:rounded-md lg:max-w-md"
+        contentClasses="text-sm leading-none mb-1 text-white"
+        expires={20}
+      >
         This website uses cookies to enhance the user experience.
       </CookieConsent>
     </section>

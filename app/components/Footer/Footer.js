@@ -48,7 +48,7 @@ export default function Footer() {
 						Website powered by{" "}
 						<a
 							className="text-yellow-btn-primary underline underline-offset-4 hover:text-yellow-600"
-							href="https://tr.ee/ecVmLU6Eqp"
+							href="https://www.instagram.com/ryan_cedzo/"
 							target="_blank"
 							rel="noreferrer">
 							Rye Bread

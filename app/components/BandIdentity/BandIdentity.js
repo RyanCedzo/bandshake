@@ -2,13 +2,12 @@
 
 import Image from "next/image";
 import Container from "@/app/global-components/Container/Container";
-import ButtonPrimary from "@/app/global-components/ButtonPrimary/ButtonPrimary";
-import NewAlbum from "../NewAlbum/NewAlbum";
+import { FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
 
 export default function BandIdentity() {
   return (
     <>
-      {/* 🔹 Mobile header: logo + Find Out More button in one line */}
+      {/* 🔹 Mobile header: logo + social buttons in one line */}
       <div className="w-full py-3 z-50 lg:hidden">
         <Container customClasses="px-2.5 flex items-center justify-between">
           <Image
@@ -18,18 +17,41 @@ export default function BandIdentity() {
             height={236}
             alt="BANDSHAKE logo"
           />
-          <a
-            href="https://tr.ee/ecVmLU6Eqp"
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center"
-          >
-            <ButtonPrimary
-              customClasses="text-sm my-0 !py-1 !px-3 flex items-center justify-center translate-y-[-26%]"
+          <div className="flex gap-3">
+            <a
+              href="https://www.instagram.com/band.shake"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
             >
-              Find Out More
-            </ButtonPrimary>
-          </a>
+              <FaInstagram
+                size={30}
+                className="text-[#ffd08f] hover:text-yellow-400 transition-colors"
+              />
+            </a>
+            <a
+              href="https://www.youtube.com/@BANDSHAKE"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
+              <FaYoutube
+                size={30}
+                className="text-[#ffd08f] hover:text-yellow-400 transition-colors"
+              />
+            </a>
+            <a
+              href="https://www.tiktok.com/@band.shake"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+            >
+              <FaTiktok
+                size={30}
+                className="text-[#ffd08f] hover:text-yellow-400 transition-colors"
+              />
+            </a>
+          </div>
         </Container>
       </div>
 

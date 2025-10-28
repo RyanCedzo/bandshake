@@ -24,7 +24,7 @@ export default function Listen() {
 					}}
 				>
 					<h2 className={`font-bold text-5xl pb-6 opacity-0 ${isInView ? "animate-slide-up" : ""}`}>
-						Listen to some of our singles:
+						Music from our BANDSHAKE alumni
 					</h2>
 					{/* <p>
 						Put some more text around here talking about the live recording abilities at the bandshake and other stuff related to that and how we got the dopest sound around

@@ -84,3 +84,34 @@
 		transform: translate3d(0, 0, 0);
 	}
 }
+
+@keyframes subtle-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); } /* Adjust 1.05 to a smaller/larger scale if needed */
+}
+
+.animate-subtle-pulse {
+  display: inline-block; /* ensures transform works */
+  animation: subtle-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse-5 {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-5 {
+  animation: pulse-5 0.8s ease-in-out 5;
+}
+
+@media (max-width: 768px) {
+  .bandshake-banner {
+    top: 15%;
+    transform: translateX(-50%);
+    transform-origin: 50% 0;
+  }
+}
